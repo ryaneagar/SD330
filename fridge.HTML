@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: lightblue;
+        }
+
+        #display {
+            width: 600px;
+            height: 800px;
+            border: 10px solid black;
+            padding: 20px;
+            box-sizing: border-box;
+            margin: 0 auto;
+        }
+
+        div {
+            border: solid black;
+            border-width: 5px;
+            padding: 2px 2px 2px 2px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            width: 30%;
+            margin: 0 auto;
+        }
+
+        #clock {
+            font-size: 30px;
+            margin-bottom: 30px;
+        }
+
+        #temp {
+            font-size: 30px;
+            margin-bottom: 30px;
+        }
+
+        .tempWidth {
+            border: black;
+            border-width: 5px;
+            padding: 2px 2px 2px 2px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            width: 30%;
+            margin: 0 auto;
+            display: none;
+        }
+
+        #imageBox {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        #displayImage {
+            margin: 0 auto;
+            display: none;
+        }
+
+        #displayImage2 {
+            margin: 0 auto;
+            display: none;
+        }
+        #displayImage3 {
+            margin: 0 auto;
+            display: none;
+            
+        }
+
+        .imageWidth {
+            border: black;
+            border-width: 5px;
+            padding: 10px 10px 10px 10px;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            width: 80%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body onLoad="startClock();">
+    <p id="timePar" style="font-size:10;font-family: 'Courier New', Courier, monospace;"></p>
+
+    <div id="display">
+        <input type="button" id="button1" value="On" onclick="button1()">
+        <input type="button" id="button2" value="TV On" onclick="button2()">
+        <input type="button" id="button3" value="Internet On" onclick="button3()">
+        <div id="clock"></div>
+        <div id="temp" class="tempWidth">32°</div>
+        <div id="div3" class="imageWidth">
+            <img src="https://variety.com/wp-content/uploads/2020/05/netflix-logo.png?w=1000&h=563&crop=1&resize=1000%2C563"
+                id="displayImage" width=400px height=350px alt="image">
+        </div>
+        <div id="div4" class="imageWidth">
+            <img src="https://i0.wp.com/vibrantandpure.com/wp-content/uploads/2017/06/fullsizerender-287.jpg?fit=750%2C928&quality=80&strip=all&ssl=1"
+                id="displayImage2" class="imageWidth" alt="image">
+        </div>
+        <div id="div5" class="imageWidth">
+            <img src="https://aptokash.github.io/SD330-2/06-web.jpg"
+                id="displayImage3" class="imageWidth" alt="image">
+        </div>
+    </div>
+
+    <script>
+        function button1() {
+            var but1 = document.getElementById("button1");
+            var displayImage = document.getElementById("displayImage");
+            var temp = document.getElementById("temp");
+
+            if (but1.value == "TV On") {
+                but1.value = "TV Off";
+                but1.style.background = "red";
+                displayImage.style.display = "block";
+                temp.style.display = "block";
+            } else {
+                but1.value = "TV On";
+                but1.style.background = "green";
+                displayImage.style.display = "none";
+                temp.style.display = "none";
+            }
+        }
+
+        function button2() {
+            var but2 = document.getElementById("button2");
+            var displayImage2 = document.getElementById("displayImage2");
+            var temp = document.getElementById("temp");
+
+            if (but2.value == "Open") {
+                but2.value = "Close";
+                but2.style.background = "red";
+                displayImage2.style.display = "block";
+                temp.style.display = "block";
+            } else {
+                but2.value = "Open";
+                but2.style.background = "green";
+                displayImage2.style.display = "none";
+                temp.style.display = "none";
+            }
+        }
+        function button3() {
+            var but3 = document.getElementById("button3");
+            var displayImage3 = document.getElementById("displayImage3");
+            var temp = document.getElementById("temp");
+
+            if (but3.value == "Internet On") {
+                but3.value = "Internet Off";
+                but3.style.background = "red";
+                displayImage3.style.display = "block";
+                temp.style.display = "block";
+            } else {
+                but3.value = "Internet On";
+                but3.style.background = "green";
+                displayImage3.style.display = "none";
+                temp.style.display = "none";
+            }
+        }
+        function startClock() {
+            setInterval(clockDisplay, 1000);
+        }
+
+        function clockDisplay() {
+            var currentDate = new Date();
+            var hours = currentDate.getHours();
+            var mins = currentDate.getMinutes();
+            var secs = currentDate.getSeconds();
+
+            hours = (hours < 10) ? "0" + hours : hours;
+            mins = (mins < 10) ? "0" + mins : mins;
+            secs = (secs < 10) ? "0" + secs : secs;
+
+            var timeString = hours + ":" + mins + ":" + secs;
+
+            var outputElement = document.getElementById("clock");
+            outputElement.textContent = timeString;
+        }
+    </script>
+</body>
+
+</html>
