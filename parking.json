@@ -1,0 +1,137 @@
+{
+    "parking_lots": [
+        {
+            "name": "Donnelly Parking Lot",
+            "map": "mapDonnelly.jpg",
+            "total_spaces": 100,
+            "comments": "Located by the Football field",
+            "other_attributes": {},
+            "spaces": [
+                {
+                    "space_id": 1,
+                    "type": "Student",
+                    "status": "Available",
+                    "filled_date_time": "",
+                    "reserved_date_time": ""
+                },
+                {
+                    "space_id": 2,
+                    "type": "Faculty/Staff",
+                    "status": "Filled",
+                    "filled_date_time": "29-04-2024, 12:00pm",
+                    "reserved_date_time": ""
+                },
+                {
+                    "space_id": 3,
+                    "type": "Handicap",
+                    "status": "Reserved",
+                    "filled_date_time": "",
+                    "reserved_date_time": "29-04-2024, 12:00pm"
+                },
+                {
+                    "space_id": 4,
+                    "type": "Faculty/Staff",
+                    "status": "Reserved",
+                    "filled_date_time": "",
+                    "reserved_date_time": "29-04-2024, 12:00pm"
+                },
+                {
+                    "space_id": 5,
+                    "type": "Student",
+                    "status": "Reserved",
+                    "filled_date_time": "",
+                    "reserved_date_time": "29-04-2024, 12:00pm"
+                },
+                {
+                    "space_id": 6,
+                    "type": "Handicap",
+                    "status": "Available",
+                    "filled_date_time": "",
+                    "reserved_date_time": ""
+                },
+                {
+                    "space_id": 7,
+                    "type": "Student",
+                    "status": "Filled",
+                    "filled_date_time": "29-04-2024, 12:00pm",
+                    "reserved_date_time": ""
+                },
+                {
+                    "space_id": 8,
+                    "type": "Handicap",
+                    "status": "Reserved",
+                    "filled_date_time": "",
+                    "reserved_date_time": "29-04-2024, 12:00pm"
+                },
+                {
+                    "space_id": 9,
+                    "type": "Student",
+                    "status": "Available",
+                    "filled_date_time": "",
+                    "reserved_date_time": ""
+                },
+                {
+                    "space_id": 10,
+                    "type": "Faculty/Staff",
+                    "status": "Available",
+                    "filled_date_time": "",
+                    "reserved_date_time": ""
+                },
+                {
+                    "space_id": 11,
+                    "type": "Student",
+                    "status": "Reserved",
+                    "filled_date_time": "",
+                    "reserved_date_time": "29-04-2024, 12:00pm"
+                },
+                {
+                    "space_id": 12,
+                    "type": "Faculty/Staff",
+                    "status": "Filled",
+                    "filled_date_time": "29-04-2024, 12:00pm",
+                    "reserved_date_time": ""
+                }
+            ]
+        },
+        {
+            "name": "Foy Parking Lot",
+            "map": "mapFoy.jpg",
+            "total_spaces": 100,
+            "comments": "Across from North End Residence Halls",
+            "other_attributes": {},
+            "spaces": []
+        },    
+        {
+            "name": "Fontaine Parking Lot",
+            "map": "mapFontaine.jpg",
+            "total_spaces": 50,
+            "comments": "Across from the Dyson Building",
+            "other_attributes": {},
+            "spaces": []
+        }, 
+        {
+            "name": "McCann Parking Lot",
+            "map": "mapMcCann.jpg",
+            "total_spaces": 200,
+            "comments": "Near McCann Center",
+            "other_attributes": {},
+            "spaces": []
+        }, 
+        {
+            "name": "Fulton Parking Lot",
+            "map": "mapFulton.jpg",
+            "total_spaces": 50,
+            "comments": "Near the Tennis Courts",
+            "other_attributes": {},
+            "spaces": []
+        }, 
+        {
+            "name": "Lower West Cedar Parking Lot",
+            "map": "mapLWC.jpg",
+            "total_spaces": 100,
+            "comments": "Near Lower West Cedar Residence Halls",
+            "other_attributes": {},
+            "spaces": []
+        } 
+    ]
+}
