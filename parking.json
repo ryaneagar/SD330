@@ -8,38 +8,38 @@
             "other_attributes": {}
         },
         "Foy": {
-            "name": "Donnelly Parking Lot",
-            "map": "mapDonnelly.jpg",
-            "total_spaces": 100,
-            "comments": "Located by the Football field",
+            "name": "Foy Parking Lot",
+            "map": "mapFoy.jpg",
+            "total_spaces": 150,
+            "comments": "Located near the Student Center",
             "other_attributes": {}
         },
         "Fontaine": {
-            "name": "Donnelly Parking Lot",
-            "map": "mapDonnelly.jpg",
-            "total_spaces": 100,
-            "comments": "Located by the Football field",
+            "name": "Fontaine Parking Lot",
+            "map": "mapFontaine.jpg",
+            "total_spaces": 80,
+            "comments": "Located by the Library",
             "other_attributes": {}
         },
         "McCann": {
-            "name": "Donnelly Parking Lot",
-            "map": "mapDonnelly.jpg",
-            "total_spaces": 100,
-            "comments": "Located by the Football field",
+            "name": "McCann Parking Lot",
+            "map": "mapMcCann.jpg",
+            "total_spaces": 120,
+            "comments": "Located by the Gymnasium",
             "other_attributes": {}
         },
         "Fulton": {
-            "name": "Donnelly Parking Lot",
-            "map": "mapDonnelly.jpg",
-            "total_spaces": 100,
-            "comments": "Located by the Football field",
+            "name": "Fulton Parking Lot",
+            "map": "mapFulton.jpg",
+            "total_spaces": 200,
+            "comments": "Located near the Science Building",
             "other_attributes": {}
         },
         "Lower West Cedar": {
-            "name": "Donnelly Parking Lot",
-            "map": "mapDonnelly.jpg",
-            "total_spaces": 100,
-            "comments": "Located by the Football field",
+            "name": "Lower West Cedar Parking Lot",
+            "map": "mapLowerWestCedar.jpg",
+            "total_spaces": 90,
+            "comments": "Located by the Dormitories",
             "other_attributes": {}
         },
         "spaces": {
@@ -92,7 +92,6 @@
                 "filled_date_time": "",
                 "reserved_date_time": ""
             },
-
             "space8": {
                 "space_id": 8,
                 "type": "Student",
