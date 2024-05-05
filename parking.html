@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marist Parking App</title>
+    <style>
+        body {
+            background-color: red;
+            margin: 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: white;
+            color: red;
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+
+        .navbar-brand {
+            font-size: 1.5em;
+            font-weight: bold;
+            text-decoration: none;
+            color: red;
+            margin-right: auto;
+        }
+
+        .navbar-right {
+            display: flex;
+            gap: 10px;
+        }
+
+        .linkBox {
+            border: 2px solid #0D1B2A;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 10px;
+            padding: 0 2px 0 2px;
+            min-width: 30px;
+            height: 30px;
+            font-size: 14px;
+            color: red;
+            cursor: pointer;
+        }
+
+        .linkBox:hover {
+            background-color: lightgrey;
+        }
+
+        #breakingNews {
+            text-align: center;
+            width: 80%;
+            margin: 0 auto;
+            padding: 5px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 30px;
+            color: white;
+        }
+
+        .pageContent {
+            display: none;
+        }
+
+        #mainPageContent {
+            display: block;
+        }
+
+        #helpPage {
+            text-align: center;
+            background-color: red;
+            color: black;
+            padding: 20px;
+        }
+
+        #loginPage {
+            text-align: center;
+            background-color: red;
+            color: black;
+            padding: 20px;
+        }
+
+        #errorSign {
+            width: 400px;
+            height: 200px;
+            background-color: rgb(167, 0, 0);
+            border: 4px groove black;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px;
+        }
+
+        #returnButton {
+            width: 100px;
+            height: 40px;
+            border: 2px gray;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        #returnButton:hover {
+            background-color: lightgrey;
+        }
+
+        #parkingMap {
+            max-width: 100%;
+            height: auto;
+        }
+
+        #welcome {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body onload="topicScroll(1)">
+    <nav class="navbar">
+        <a href="#" onclick="topicScroll(1)" class="navbar-brand" id="maristLogo">MARIST</a>
+        <div class="navbar-right">
+            <div class="linkBox" id="pickParkingLink">
+                <p>Pick Your Parking</p>
+            </div>
+            <div class="linkBox" id="helpLink">
+                <p>Help</p>
+            </div>
+            <div class="linkBox" id="loginLink">
+                <p>Login</p>
+            </div>
+        </div>
+    </nav>
+
+    <div id="mainPage">
+        <div id="mainPageContent" class="pageContent">
+            <div id="breakingNews">
+                <div id="welcome">
+                    <h1>Welcome to the Marist Parking App!</h1>
+                    <img id="parkingMap" src="https://www.marist.edu/documents/d/guest/campus-parking-map-23">
+                </div>
+            </div>
+        </div>
+
+        <div id="parkingPage" class="pageContent">
+
+                fetchData();
+            </script>
+        </div>
+
+        <div id="helpPage" class="pageContent">
+            <h1 id="errorSign"><b>404: Page Not Found</b></h1>
+            <h2>Sorry! This is not the parking spot you are looking for.</h2>
+            <button id="returnButton" onclick="switchPage('mainPageContent')"><b>Return to Home
+                    Page</b></button>
+            <br>
+            <br>
+            <img src="https://www.mustang6g.com/forums/media/funny-parking-best-car-parking-made-by-women-7.6386/full?d=1532202316"
+                alt="404 Image" style="width: 300px; height: 300px;">
+        </div>
+
+        <div id="loginPage" class="pageContent">
+            <h1 id="errorSign"><b>404: Page Not Found</b></h1>
+            <h2>Sorry! This is not the parking spot you are looking for.</h2>
+            <button id="returnButton" onclick="switchPage('mainPageContent')"><b>Return to Home
+                    Page</b></button>
+            <br>
+            <br>
+            <img src="https://www.mustang6g.com/forums/media/funny-parking-best-car-parking-made-by-women-7.6386/full?d=1532202316"
+                alt="404 Image" style="width: 300px; height: 300px;">
+        </div>
+    </div>
+
+    <script>
+        const pickParkingLink = document.getElementById('pickParkingLink');
+        const helpLink = document.getElementById('helpLink');
+        const loginLink = document.getElementById('loginLink');
+        const maristLogo = document.getElementById('maristLogo');
+
+        pickParkingLink.addEventListener('click', function () {
+            switchPage('parkingPage');
+        });
+
+        helpLink.addEventListener('click', function () {
+            switchPage('helpPage');
+        });
+
+        loginLink.addEventListener('click', function () {
+            switchPage('loginPage');
+        });
+
+        maristLogo.addEventListener('click', function (event) {
+            event.preventDefault(); // Prevent default behavior of anchor tag
+            switchPage('mainPageContent');
+        });
+
+        function switchPage(pageId) {
+            const pages = document.querySelectorAll('.pageContent');
+            pages.forEach(page => {
+                if (page.id === pageId) {
+                    page.style.display = 'block';
+                } else {
+                    page.style.display = 'none';
+                }
+            });
+        }
+
+        async function fetchData() {
+            let htmlString = "<p> Fetching file: aptokash.github.io/SD330/SampleObjects.json";
+            htmlString += "<br> Loading into: 'data' multi-dimensional object (array)";
+
+            const response = await fetch("https://github.com/ryaneagar/SD330/blob/main/parking.json");
+            const data = await response.json();
+
+            htmlString += "<p> The adult access is: " + data['Donnelly']['name']['map']['total_spaces']['comments']['other_attributes'];
+            htmlString += "<p> The adult access is: " + data['Foy']['name']['map']['total_spaces']['comments']['other_attributes'];
+            htmlString += "<p> The adult access is: " + data['Fontaine']['name']['map']['total_spaces']['comments']['other_attributes'];
+            htmlString += "<p> The adult access is: " + data['McCann']['name']['map']['total_spaces']['comments']['other_attributes'];
+            htmlString += "<p> The adult access is: " + data['Fulton']['name']['map']['total_spaces']['comments']['other_attributes'];
+            htmlString += "<p> The adult access is: " + data['Lower West Cedar']['name']['map']['total_spaces']['comments']['other_attributes'];
+
+            let keys = Object.keys(data['userIDs']);
+            for (let i in keys) {
+                let thiskey = keys[i];
+                htmlString += "<li> Userid " + thiskey + ": User Name = " + data['userIDs'][thiskey]['name'] +
+                    "Password = " + data['userIDs'][thiskey]['password'];
+            }
+
+
+            document.getElementById('parkingPage').innerHTML = htmlString;
+        }
+
+        fetchData();
+
+        function topicScroll(topic) {
+            let topics = 5;
+            for (let i = 1; i <= topics; i++) {
+                let button = document.getElementById(i + 'b');
+                if (button.id !== topic + 'b') {
+                    button.style.backgroundColor = '#E0E1DD';
+                    button.style.color = '#0D1B2A';
+                }
+            }
+
+            let selectedButton = document.getElementById(topic + 'b');
+            selectedButton.style.backgroundColor = '#778DA9';
+            selectedButton.style.color = '#E0E1DD';
+        }
+    </script>
+</body>
+
+</html>
