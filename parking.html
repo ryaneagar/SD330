@@ -55,7 +55,7 @@
             background-color: lightgrey;
         }
 
-        #breakingNews {
+        #home {
             text-align: center;
             width: 80%;
             margin: 0 auto;
@@ -128,138 +128,115 @@
         }
     </style>
 </head>
-
-<body onload="topicScroll(1)">
-    <nav class="navbar">
-        <a href="#" onclick="topicScroll(1)" class="navbar-brand" id="maristLogo">MARIST</a>
-        <div class="navbar-right">
-            <div class="linkBox" id="pickParkingLink">
-                <p>Pick Your Parking</p>
-            </div>
-            <div class="linkBox" id="helpLink">
-                <p>Help</p>
-            </div>
-            <div class="linkBox" id="loginLink">
-                <p>Login</p>
-            </div>
+<nav class="navbar">
+    <a href="#" onclick="topicScroll(1)" class="navbar-brand" id="maristLogo">MARIST</a>
+    <div class="navbar-right">
+        <div class="linkBox" id="pickParkingLink">
+            <p>Pick Your Parking</p>
         </div>
-    </nav>
+        <div class="linkBox" id="helpLink">
+            <p>Help</p>
+        </div>
+        <div class="linkBox" id="loginLink">
+            <p>Login</p>
+        </div>
+    </div>
+</nav>
 
-    <div id="mainPage">
-        <div id="mainPageContent" class="pageContent">
-            <div id="breakingNews">
-                <div id="welcome">
-                    <h1>Welcome to the Marist Parking App!</h1>
-                    <img id="parkingMap" src="https://www.marist.edu/documents/d/guest/campus-parking-map-23">
-                </div>
+<div id="mainPage">
+    <div id="mainPageContent" class="pageContent">
+        <div id="home">
+            <div id="welcome">
+                <h1>Welcome to the Marist Parking App!</h1>
+                <img id="parkingMap" src="https://www.marist.edu/documents/d/guest/campus-parking-map-23">
             </div>
-        </div>
-
-        <div id="parkingPage" class="pageContent">
-
-                fetchData();
-            </script>
-        </div>
-
-        <div id="helpPage" class="pageContent">
-            <h1 id="errorSign"><b>404: Page Not Found</b></h1>
-            <h2>Sorry! This is not the parking spot you are looking for.</h2>
-            <button id="returnButton" onclick="switchPage('mainPageContent')"><b>Return to Home
-                    Page</b></button>
-            <br>
-            <br>
-            <img src="https://www.mustang6g.com/forums/media/funny-parking-best-car-parking-made-by-women-7.6386/full?d=1532202316"
-                alt="404 Image" style="width: 300px; height: 300px;">
-        </div>
-
-        <div id="loginPage" class="pageContent">
-            <h1 id="errorSign"><b>404: Page Not Found</b></h1>
-            <h2>Sorry! This is not the parking spot you are looking for.</h2>
-            <button id="returnButton" onclick="switchPage('mainPageContent')"><b>Return to Home
-                    Page</b></button>
-            <br>
-            <br>
-            <img src="https://www.mustang6g.com/forums/media/funny-parking-best-car-parking-made-by-women-7.6386/full?d=1532202316"
-                alt="404 Image" style="width: 300px; height: 300px;">
         </div>
     </div>
 
-    <script>
-        const pickParkingLink = document.getElementById('pickParkingLink');
-        const helpLink = document.getElementById('helpLink');
-        const loginLink = document.getElementById('loginLink');
-        const maristLogo = document.getElementById('maristLogo');
+    <div id="parkingPage" class="pageContent">
+        <div id="parkingLotInfo"></div>
+    </div>
 
-        pickParkingLink.addEventListener('click', function () {
-            switchPage('parkingPage');
-        });
+    <div id="helpPage" class="pageContent">
+        <h1 id="errorSign"><b>404: Page Not Found</b></h1>
+        <h2>Sorry! This is not the parking spot you are looking for.</h2>
+        <button id="returnButton" onclick="switchPage('mainPageContent')"><b>Return to Home
+                Page</b></button>
+        <br>
+        <br>
+        <img src="https://www.mustang6g.com/forums/media/funny-parking-best-car-parking-made-by-women-7.6386/full?d=1532202316"
+            alt="404 Image" style="width: 300px; height: 300px;">
+    </div>
 
-        helpLink.addEventListener('click', function () {
-            switchPage('helpPage');
-        });
+    <div id="loginPage" class="pageContent">
+        <h1 id="errorSign"><b>404: Page Not Found</b></h1>
+        <h2>Sorry! This is not the parking spot you are looking for.</h2>
+        <button id="returnButton" onclick="switchPage('mainPageContent')"><b>Return to Home
+                Page</b></button>
+        <br>
+        <br>
+        <img src="https://www.mustang6g.com/forums/media/funny-parking-best-car-parking-made-by-women-7.6386/full?d=1532202316"
+            alt="404 Image" style="width: 300px; height: 300px;">
+    </div>
+</div>
 
-        loginLink.addEventListener('click', function () {
-            switchPage('loginPage');
-        });
+<script type="module">
+    const pickParkingLink = document.getElementById('pickParkingLink');
+    const helpLink = document.getElementById('helpLink');
+    const loginLink = document.getElementById('loginLink');
+    const maristLogo = document.getElementById('maristLogo');
 
-        maristLogo.addEventListener('click', function (event) {
-            event.preventDefault(); // Prevent default behavior of anchor tag
-            switchPage('mainPageContent');
-        });
+    pickParkingLink.addEventListener('click', function () {
+        switchPage('parkingPage');
+    });
 
-        function switchPage(pageId) {
-            const pages = document.querySelectorAll('.pageContent');
-            pages.forEach(page => {
-                if (page.id === pageId) {
-                    page.style.display = 'block';
-                } else {
-                    page.style.display = 'none';
-                }
-            });
-        }
+    helpLink.addEventListener('click', function () {
+        switchPage('helpPage');
+    });
 
-        async function fetchData() {
-            let htmlString = "<p> Fetching file: aptokash.github.io/SD330/SampleObjects.json";
-            htmlString += "<br> Loading into: 'data' multi-dimensional object (array)";
+    loginLink.addEventListener('click', function () {
+        switchPage('loginPage');
+    });
 
-            const response = await fetch("https://github.com/ryaneagar/SD330/blob/main/parking.json");
-            const data = await response.json();
+    maristLogo.addEventListener('click', function (event) {
+        event.preventDefault();
+        switchPage('mainPageContent');
+    });
 
-            htmlString += "<p> The adult access is: " + data['Donnelly']['name']['map']['total_spaces']['comments']['other_attributes'];
-            htmlString += "<p> The adult access is: " + data['Foy']['name']['map']['total_spaces']['comments']['other_attributes'];
-            htmlString += "<p> The adult access is: " + data['Fontaine']['name']['map']['total_spaces']['comments']['other_attributes'];
-            htmlString += "<p> The adult access is: " + data['McCann']['name']['map']['total_spaces']['comments']['other_attributes'];
-            htmlString += "<p> The adult access is: " + data['Fulton']['name']['map']['total_spaces']['comments']['other_attributes'];
-            htmlString += "<p> The adult access is: " + data['Lower West Cedar']['name']['map']['total_spaces']['comments']['other_attributes'];
-
-            let keys = Object.keys(data['userIDs']);
-            for (let i in keys) {
-                let thiskey = keys[i];
-                htmlString += "<li> Userid " + thiskey + ": User Name = " + data['userIDs'][thiskey]['name'] +
-                    "Password = " + data['userIDs'][thiskey]['password'];
+    function switchPage(pageId) {
+        const pages = document.querySelectorAll('.pageContent');
+        pages.forEach(page => {
+            if (page.id === pageId) {
+                page.style.display = 'block';
+            } else {
+                page.style.display = 'none';
             }
+        });
+    }
+
+    const response = await fetch("https://ryaneagar.github.io/SD330/parking.json");
+    const data = await response.json();
+
+    let htmlString = "<h1>Parking Lot Information</h1>";
+    htmlString += "<div id='parkingLots'>";
+
+    for (const parkingLot in data.parking_lots) {
+        const lot = data.parking_lots[parkingLot];
+        htmlString += "<div>";
+        htmlString += "<h2><a href='spaces.html'>" + lot.name + "</a></h2>";
+        htmlString += "<p>Total Spaces: " + lot.total_spaces + "</p>";
+        htmlString += "<p>Comments: " + lot.comments + "</p>";
+        htmlString += "<p>Map: <img src='" + lot.map + "' alt='Parking Lot Map'></p>";
+        htmlString += "</ul>";
+        htmlString += "</div>";
+    }
 
 
-            document.getElementById('parkingPage').innerHTML = htmlString;
-        }
+    document.getElementById('parkingLotInfo').innerHTML = htmlString;
 
-        fetchData();
 
-        function topicScroll(topic) {
-            let topics = 5;
-            for (let i = 1; i <= topics; i++) {
-                let button = document.getElementById(i + 'b');
-                if (button.id !== topic + 'b') {
-                    button.style.backgroundColor = '#E0E1DD';
-                    button.style.color = '#0D1B2A';
-                }
-            }
+</script>
 
-            let selectedButton = document.getElementById(topic + 'b');
-            selectedButton.style.backgroundColor = '#778DA9';
-            selectedButton.style.color = '#E0E1DD';
-        }
-    </script>
 </body>
 
 </html>
