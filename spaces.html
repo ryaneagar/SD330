@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport">
+    <title>Parking Lot Information</title>
+</head>
+
+<body>
+    <div id="parkingLotInfo"></div>
+
+    <p id="info">
+
+        <script type="module">
+            var urlParms = new URLSearchParams(window.location.search);
+            var lot = urlParms.get('lot');
+
+            htmlString += "<br> The passed 'lot' is " + lot;
+
+            const response = await fetch("https://ryaneagar.github.io/SD330/parking.json");
+            const data = await response.json();
+
+            let htmlString = "<h1>Parking Lot Information</h1>";
+            htmlString += "<div id='parkingLots'>";
+
+            for (const parkingLot in data.parking_lots) {
+                const lot = data.parking_lots[parkingLot];
+                htmlString += "<div>";
+                htmlString += "<h2><a href='spaces.html'>" + lot.name + "</a></h2>"; // Link to spaces.html
+                htmlString += "<p>Total Spaces: " + lot.total_spaces + "</p>";
+                htmlString += "<p>Comments: " + lot.comments + "</p>";
+                htmlString += "<p>Map: <img src='" + lot.map + "' alt='Parking Lot Map'></p>";
+                htmlString += "</ul>";
+                htmlString += "</div>";
+            }
+        </script>
+</body>
+
+</html>
