@@ -95,7 +95,7 @@
         },
         "Foy": {
             "name": "Foy Parking Lot",
-            "map": "mapFoy.jpg",
+            "map": "mapFoy.jpg.png",
             "total_spaces": 150,
             "comments": "Located near the Student Center",
             "other_attributes": {},
@@ -188,7 +188,7 @@
         },
         "Fontaine": {
             "name": "Fontaine Parking Lot",
-            "map": "mapFontaine.jpg",
+            "map": "mapFontaine.jpg.png",
             "total_spaces": 80,
             "comments": "Located by the Library",
             "other_attributes": {},
@@ -281,7 +281,7 @@
         },
         "McCann": {
             "name": "McCann Parking Lot",
-            "map": "mapMcCann.jpg",
+            "map": "mapMcCann.jpg.png",
             "total_spaces": 120,
             "comments": "Located by the Gymnasium",
             "other_attributes": {},
@@ -374,7 +374,7 @@
         },
         "Fulton": {
             "name": "Fulton Parking Lot",
-            "map": "mapFulton.jpg",
+            "map": "mapFulton.jpg.png",
             "total_spaces": 200,
             "comments": "Located near the Science Building",
             "other_attributes": {},
@@ -467,7 +467,7 @@
         },
         "Lower West Cedar": {
             "name": "Lower West Cedar Parking Lot",
-            "map": "mapLowerWestCedar.jpg",
+            "map": "mapLowerWestCedar.jpg.png",
             "total_spaces": 90,
             "comments": "Located by the Dormitories",
             "other_attributes": {},
