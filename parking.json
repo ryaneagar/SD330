@@ -2,7 +2,7 @@
     "parking_lots": {
         "Donnelly": {
             "name": "Donnelly Parking Lot",
-            "map": "mapDonnelly.jpg",
+            "map": "mapDonnelly.jpg.png",
             "total_spaces": 100,
             "comments": "Located by the Football field",
             "other_attributes": {},
